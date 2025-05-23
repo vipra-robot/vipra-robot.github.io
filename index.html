@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ViPRA is a simple pretraining and fine-tuning framework that learns continuous robot control from actionless videos">
+  <meta name="keywords" content="ViPRA, Video Prediction, Robot Actions, Robotics, Machine Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="ViPRA: Video Prediction for Robot Actions">
+  <title>ViPRA: Video Prediction for Robot Actions</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/vipra_robot_icon.png">
+  <link rel="apple-touch-icon" href="./static/images/vipra_robot_icon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> ViPRA: Video Prediction for Robot Actions</h1>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://vipra-robot.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://vipra-robot.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://vipra-robot.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://vipra-robot.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <img src="./static/images/teaser_web_v2.png" style="max-width: 100%;" alt="ViPRA teaser image">
+      <h2 class="subtitle mt-4">
+        <!-- ViPRA learns robot control by predicting latent video dynamics from actionless demonstrations. -->
+        We present ViPRA, a recipe for training generalist policy from human and robot videos via large-scale video models.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Can we turn a video prediction model into a robot policy?
+            Videos, including those of humans or teleoperated robots, capture rich physical interactions. However, most of them lack labeled actions, which limits their use in robot learning. We present <b>ViPRA</b>, a simple pretraining and fine-tuning framework that learns continuous robot control from these actionless videos. Instead of directly predicting actions, we train a video-language model to predict <i>both future visual observations and compact latent actions</i>, which serve as intermediate representations of scene dynamics. These latent actions are trained using perceptual losses and optical flow consistency to ensure they reflect physically grounded behavior. For downstream control, we introduce a <i>flow-matching decoder</i> that maps latent actions to robot-specific continuous actions, using only 100 to 200 teleoperated demonstrations. This approach avoids expensive action annotation, supports generalization across embodiments, and enables smooth, low-frequency control. Unlike prior work that treats pretraining as autoregressive policy learning, ViPRA explicitly models both what changes and how. Our method outperforms strong baselines, with a 16% gain on the SIMPLER benchmark and a 14% improvement across real-world manipulation tasks. Code, checkpoints, and pseudo-labeled data will be released soon.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Method Section -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h2 class="title is-3">Method</h2>
+            <figure>
+              <img src="./static/images/method_web.png" alt="ViPRA Method Diagram" style="max-width: 100%;">
+              <figcaption class="has-text-justified mt-2">
+                <b>Overview of ViPRA:</b> Given human and robot videos without action labels, ViPRA learns to represent scene dynamics using a discrete latent action space. A neural quantization bottleneck extracts latent actions from image sequences, and a video-language model is pre-trained to jointly predict future observations <i>o<sub>t+H</sub></i> and latent actions <i>z<sub>t:t+H-1</sub></i> from past frames and a task description. The model is then fine-tuned on a small set of action-labeled robot demonstrations using flow matching to predict continuous actions <i>a<sub>t:t+H-1</sub></i>.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+    
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="content has-text-justified">
+              <p>
+                ViPRA is a hierarchical learning framework that turns raw human and robot videos into actionable robot control policies—without requiring any action labels during pretraining. It begins by extracting <i>latent actions</i>: discrete, temporally grounded representations of motion learned via a neural quantization bottleneck. These latent actions are trained using reconstruction, perceptual and optical flow-based losses to capture meaningful scene dynamics.
+              </p>
+              <p>
+                A video-language model is then pretrained to jointly predict both future image observations and these latent actions from past frames and a natural language task prompt. This enables the model to reason about both <i>what changes</i> in the scene and <i>how</i> it changes, without ever observing real robot actions.
+              </p>
+              <p>
+                Finally, we fine-tune the model on a small number of real-world robot demonstrations using a <i>flow-matching decoder</i> that maps latent actions to continuous control commands. This design allows ViPRA to scale robot learning using large video datasets while retaining fine-grained, smooth control through low-frequency action outputs.
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+  </div>
+</section>
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
