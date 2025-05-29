@@ -148,7 +148,7 @@
             <h2 class="title is-3">Method</h2>
             <figure>
               <img src="./static/images/method_web.png" alt="ViPRA Method Diagram" style="max-width: 100%;">
-              <figcaption class="has-text-justified mt-2">
+              <figcaption class="has-text-justified mt-2 has-text-grey">
                 <b>Overview of ViPRA:</b> Given human and robot videos without action labels, ViPRA learns to represent scene dynamics using a discrete latent action space. A neural quantization bottleneck extracts latent actions from image sequences, and a video-language model is pre-trained to jointly predict future observations <i>o<sub>t+H</sub></i> and latent actions <i>z<sub>t:t+H-1</sub></i> from past frames and a task description. The model is then fine-tuned on a small set of action-labeled robot demonstrations using flow matching to predict continuous actions <i>a<sub>t:t+H-1</sub></i>.
               </figcaption>
             </figure>
@@ -189,9 +189,9 @@
     <!-- Placeholder for Table or Plot -->
     <div class="has-text-centered mb-6">
       <img src="./static/images/real_bar.png" alt="Real-World Results Table" style="max-width: 100%; border-radius: 8px;">
-      <p class="is-size-6 has-text-grey">
+      <figcaption class="has-text-grey has-text-justified mt-2">
         <b>Real-World results:</b> Full and partial success rates across real-world manipulation benchmarks. We compare ViPRA-FM with Pi-0, a popular vision-language-action model trained on large-scale action-labeled data, and Scratch-FM, which uses the video model directly without any pretraining.
-      </p>      
+      </figcaption>     
     </div>
 
     <!-- Generalization Subsection -->
