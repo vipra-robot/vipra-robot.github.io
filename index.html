@@ -182,14 +182,16 @@
     <!-- Summary Paragraph -->
     <div class="content has-text-justified mb-5">
       <p>
-        We deploy ViPRA on a real Franka Panda robot across a variety of everyday manipulation tasks, including object placement, grasping, and tool use. The policy operates at a low action frequency and is conditioned only on language prompts and monocular images. It executes smooth, accurate behaviors without any action labels during pretraining.
-      </p>
+        We evaluate ViPRA on a Franka Panda robot across diverse real-world manipulation tasks, including pick and place, covering, and stacking. Despite being trained with limited action-labeled data, it performs smooth and reliable behaviors, often retrying failed grasps. ViPRA generalizes to novel objects and visual variations, demonstrating robustness beyond the training distribution.
+      </p>      
     </div>
 
     <!-- Placeholder for Table or Plot -->
     <div class="has-text-centered mb-6">
-      <img src="./static/images/real_world_placeholder_table.png" alt="Real-World Results Table" style="max-width: 100%; border: 1px dashed #ccc;">
-      <p class="is-size-6 has-text-grey">Figure: Success rates and task performance metrics across real-world manipulation benchmarks (placeholder).</p>
+      <img src="./static/images/real_bar.png" alt="Real-World Results Table" style="max-width: 100%; border: 1px dashed #ccc;">
+      <p class="is-size-6 has-text-grey">
+        <b>Real-World results:</b> Full and partial success rates across real-world manipulation benchmarks. We compare ViPRA-FM with Pi-0, a popular vision-language-action model trained on large-scale action-labeled data, and Scratch-FM, which uses the video model directly without any pretraining.
+      </p>      
     </div>
 
     <!-- Generalization Subsection -->
@@ -205,24 +207,24 @@
       <div class="column has-text-centered">
         <h4 class="title is-5">Seen Objects</h4>
         <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
-          <source src="./static/videos/cover_apple.mp4" type="video/mp4">
+          <source src="./static/videos/cover_mid_apple.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <br>
         <video controls muted autoplay loop playsinline style="max-width: 100%; margin-top: 1rem; border-radius: 8px;">
-          <source src="./static/videos/cover_bowl.mp4" type="video/mp4">
+          <source src="./static/videos/cover_bowl_left.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
       <div class="column has-text-centered">
         <h4 class="title is-5">Unseen Objects</h4>
         <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
-          <source src="./static/videos/cover_baseball.mp4" type="video/mp4">
+          <source src="./static/videos/cover_mid_baseball.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <br>
         <video controls muted autoplay loop playsinline style="max-width: 100%; margin-top: 1rem; border-radius: 8px;">
-          <source src="./static/videos/cover_pepper.mp4" type="video/mp4">
+          <source src="./static/videos/cover_pepper_left.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
