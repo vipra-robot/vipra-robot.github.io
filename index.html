@@ -175,6 +175,62 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Real-World Results</h2>
+
+    <!-- Summary Paragraph -->
+    <div class="content has-text-justified mb-5">
+      <p>
+        We deploy ViPRA on a real Franka Panda robot across a variety of everyday manipulation tasks, including object placement, grasping, and tool use. The policy operates at a low action frequency and is conditioned only on language prompts and monocular images. It executes smooth, accurate behaviors without any action labels during pretraining.
+      </p>
+    </div>
+
+    <!-- Placeholder for Table or Plot -->
+    <div class="has-text-centered mb-6">
+      <img src="./static/images/real_world_placeholder_table.png" alt="Real-World Results Table" style="max-width: 100%; border: 1px dashed #ccc;">
+      <p class="is-size-6 has-text-grey">Figure: Success rates and task performance metrics across real-world manipulation benchmarks (placeholder).</p>
+    </div>
+
+    <!-- Generalization Subsection -->
+    <div class="content mb-4">
+      <h3 class="title is-4">Generalization to Unseen Objects</h3>
+      <p>
+        ViPRA generalizes to novel objects and visual variations, despite never observing them during pretraining or fine-tuning. Below, we show the robot completing a “Cover-Object” task with both seen and unseen items.
+      </p>
+    </div>
+
+    <!-- Side-by-Side Seen vs Unseen Videos -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h4 class="title is-5">Seen Objects</h4>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+          <source src="./static/videos/cover_apple.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <br>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; margin-top: 1rem; border-radius: 8px;">
+          <source src="./static/videos/cover_bowl.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-5">Unseen Objects</h4>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+          <source src="./static/videos/cover_baseball.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <br>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; margin-top: 1rem; border-radius: 8px;">
+          <source src="./static/videos/cover_pepper.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <section class="section">
   <div class="container is-max-desktop">
