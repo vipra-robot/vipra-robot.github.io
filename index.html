@@ -265,6 +265,37 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Simulation Results</h2>
+
+    <div class="content has-text-justified mb-5">
+      <p>
+        We evaluate ViPRA on the <b>SIMPLER</b> benchmark, a suite of simulated tasks built to test generalist robot control across diverse goals and object types. ViPRA outperforms all prior baselines in both discrete and continuous control settings.
+      </p>
+
+      <p>
+        <p>
+          In simulation, our discrete variant ViPRA-AR achieves the highest success rate—showing that discretized action prediction in an autoregressive manner can be very effective in low-noise, fully observed environments. Our continuous model, ViPRA-FM, also outperforms all other baselines, both discrete and continuous, highlighting the strength of our video-based pretraining. Its slightly lower score compared to ViPRA-AR reflects the slower convergence typical of flow matching. ViPRA-FM is better suited for real-world deployment, where smoothness and robustness are critical.
+        </p>
+        
+      </p>
+      
+      
+      
+    </div>
+
+    <div class="has-text-centered mb-5">
+      <img src="./static/images/sim_results.png" alt="SIMPLER Results Chart" style="max-width: 100%; border-radius: 8px;">
+      <figcaption class="has-text-grey has-text-justified mt-2">
+        <b>Simulation Results:</b> Success and grasp rates across four simulated tasks in the SIMPLER benchmark. We compare ViPRA with discrete-action baselines like Scratch-AR, OpenVLA, and LAPA (which also uses latent action pretraining, but without video prediction), as well as continuous-control models such as Pi-0 and Scratch-FM.
+      </figcaption>
+    </div>
+  </div>
+</section>
+
+
+
 
 <footer class="footer">
   <div class="container">
