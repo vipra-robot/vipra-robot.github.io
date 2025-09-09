@@ -147,7 +147,7 @@
           <div class="column is-full">
             <h2 class="title is-3">Method</h2>
             <figure>
-              <img src="./static/images/method_web.png" alt="ViPRA Method Diagram" style="max-width: 100%;">
+              <img src="./static/images/vipra_method_web_revised.png" alt="ViPRA Method Diagram" style="max-width: 100%;">
               <figcaption class="has-text-justified mt-2 has-text-grey">
                 <b>Overview of ViPRA:</b> Given human and robot videos without action labels, ViPRA learns to represent scene dynamics using a discrete latent action space. A neural quantization bottleneck extracts motion-centric latent actions from image sequences, and a video-language model is pretrained to jointly predict future observations <i>o<sub>t+H</sub></i> and latent actions <i>z<sub>t:t+H-1</sub></i> from past frames <i>(o<sub>t-1</sub>, o<sub>t</sub>)</i> and a task description <i>c</i>. The model is then finetuned on a small set of action-labeled robot demonstrations using flow matching to predict continuous action chunks <i>a<sub>t:t+H-1</sub></i>.
               </figcaption>
@@ -198,12 +198,13 @@
     <div class="content mb-4">
       <h3 class="title is-4">Generalization to Unseen Objects</h3>
       <p>
-        ViPRA generalizes to novel objects and visual variations, despite never observing them during pretraining or fine-tuning. Below, we show the robot completing a “Cover-Object” task with both seen and unseen items.
+        ViPRA generalizes to novel objects and visual variations, despite never observing them during pretraining or finetuning.
+        <!-- Below, we show the robot completing a “Cover-Object” task with both seen and unseen items. -->
       </p>
     </div>
 
     <!-- Side-by-Side Seen vs Unseen Videos -->
-    <div class="columns is-centered">
+    <!-- <div class="columns is-centered">
       <div class="column has-text-centered">
         <h4 class="title is-5">Seen Objects</h4>
         <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
@@ -213,6 +214,11 @@
         <br>
         <video controls muted autoplay loop playsinline style="max-width: 100%; margin-top: 1rem; border-radius: 8px;">
           <source src="./static/videos/cover_bowl_left.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <br>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; margin-top: 1rem; border-radius: 8px;">
+          <source src="./static/videos/stack_cup_red_blue.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -227,8 +233,120 @@
           <source src="./static/videos/cover_pepper_left.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+        <br>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; margin-top: 1rem; border-radius: 8px;">
+          <source src="./static/videos/stack_cup_red_black.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div> -->
+
+    <!-- Seen vs Unseen in Rows, Videos Across Columns -->
+    <div class="container">
+      <!-- Seen Row -->
+      <h4 class="title is-5 has-text-centered">Seen Objects</h4>
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h6 class="title is-6">Cover-Apple</h6>
+          <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+            <source src="./static/videos/cover_mid_apple.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h6 class="title is-6">Cover-Bowl</h6>
+          <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+            <source src="./static/videos/cover_bowl_left.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h6 class="title is-6">Stack-Red-on-Blue</h6>
+          <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+            <source src="./static/videos/stack_cup_red_blue.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Unseen Row -->
+      <h4 class="title is-5 has-text-centered">Unseen Objects</h4>
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h6 class="title is-6">Cover-Baseball</h6>
+          <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+            <source src="./static/videos/cover_mid_baseball.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h6 class="title is-6">Cover-Pepper</h6>
+          <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+            <source src="./static/videos/cover_pepper_left.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h6 class="title is-6">Stack-Red-on-Black</h6>
+          <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+            <source src="./static/videos/stack_cup_red_black.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
+
+    
+    <!-- Robustness Subsection -->
+    <div class="content mb-4 mt-6">
+      <h3 class="title is-4">Robustness</h3>
+      <p>
+      ViPRA shows robust recovery behavior. It can retry failed grasps and adapt to external perturbations, even when objects are moved during execution.
+      </p>
+    </div>
+
+
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h6 class="title is-6">Retries Failed Pick</h6>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+          <source src="./static/videos/retry_cup_v3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h6 class="title is-6">Adapts to External Perturbation</h6>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+          <source src="./static/videos/pick_place_external.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h6 class="title is-6">Retries Failed Grasp</h6>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+          <source src="./static/videos/retry_cover.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- High-Frequency Subsection -->
+    <div class="content mb-4 mt-6">
+      <h3 class="title is-4">High-Frequency Control</h3>
+      <p>
+      ViPRA uses action chunking with a flow-matching decoder to generate smooth, continuous action sequences. It reduces inference lag with KV caching to support high-frequency reactive robot control at up to 20 Hz with 14-action chunk length.
+      </p>
+    </div>
+
+    <!-- Side-by-side Videos -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h4 class="title is-5">Without KV cache (3.5Hz control)</h4>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+          <source src="./static/videos/cover_apple_no_kv.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-5">With KV cache (7Hz control)</h4>
+        <video controls muted autoplay loop playsinline style="max-width: 100%; border-radius: 8px;">
+          <source src="./static/videos/cover_apple_kv.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
   </div>
 </section>
 
