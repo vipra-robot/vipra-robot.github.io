@@ -121,7 +121,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Can we turn a video prediction model into a robot policy? Videos, including those of humans or teleoperated robots, capture rich physical interactions. However, most of them lack labeled actions, which limits their use in robot learning. We present <b>V</b>ideo <b>P</b>rediction for <b>R</b>obot <b>A</b>ctions (ViPRA), a simple pretraining-finetuning framework that learns continuous robot control from these actionless videos. Instead of directly predicting actions, we train a video-language model to predict <i>both future visual observations and motion-centric latent actions</i>, which serve as intermediate representations of scene dynamics. We train these latent actions using perceptual losses and optical flow consistency to ensure they reflect physically grounded behavior. For downstream control, we introduce a chunked <i>flow-matching decoder</i> that maps latent actions to robot-specific continuous action sequences, using only 100 to 200 teleoperated demonstrations. This approach avoids expensive action annotation, supports generalization across embodiments, and enables smooth, high-frequency continuous control via chunked action decoding. Unlike prior latent action works that treat pretraining as autoregressive policy learning, ViPRA explicitly models both what changes and how. Our method outperforms strong baselines, with a 16\% gain on the SIMPLER benchmark and a 14\% improvement across real world manipulation tasks. Code, checkpoints, and pseudo-labeled data will be released soon.
+            Can we turn a video prediction model into a robot policy? Videos, including those of humans or teleoperated robots, capture rich physical interactions. However, most of them lack labeled actions, which limits their use in robot learning. We present <b>V</b>ideo <b>P</b>rediction for <b>R</b>obot <b>A</b>ctions (ViPRA), a simple pretraining-finetuning framework that learns continuous robot control from these actionless videos. Instead of directly predicting actions, we train a video-language model to predict <i>both future visual observations and motion-centric latent actions</i>, which serve as intermediate representations of scene dynamics. We train these latent actions using perceptual losses and optical flow consistency to ensure they reflect physically grounded behavior. For downstream control, we introduce a chunked <i>flow-matching decoder</i> that maps latent actions to robot-specific continuous action sequences, using only 100 to 200 teleoperated demonstrations. This approach avoids expensive action annotation, supports generalization across embodiments, and enables smooth, high-frequency continuous control via chunked action decoding. Unlike prior latent action works that treat pretraining as autoregressive policy learning, ViPRA explicitly models both what changes and how. Our method outperforms strong baselines, with a 16% gain on the SIMPLER benchmark and a 14% improvement across real world manipulation tasks. Code, checkpoints, and pseudo-labeled data will be released soon.
           </p>
         </div>
       </div>
@@ -172,6 +172,62 @@
         </div>
     
 
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Motion-Centric Latent Actions</h2>
+    <p class="content has-text-justified mb-5">
+      <!-- ViPRA's latent action tokenizer encodes transferable motion semantics directly from video. By injecting latents from one clip into another, we can alter the motion while preserving scene content — for example, turning a downward trajectory into upward movement, or flipping rightward motion to the left. These cross-video transfers demonstrate that ViPRA's latent codes capture meaningful, dynamics-aware representations rather than just appearance. -->
+      ViPRA's latent action tokenizer learns <em>motion-centric dynamics</em> rather than just visual appearance. By encoding transferable motion semantics directly from video, it captures how objects move in a scene. Injecting latents from one clip into another can therefore change the motion while keeping the scene intact—for instance, turning a downward trajectory into upward movement, or reversing rightward motion to the left. These cross-video transfers highlight that ViPRA's latent codes reflect meaningful, dynamics-aware behavior.
+    </p>
+  </div>
+
+  <div class="columns is-variable is-6">
+    <!-- Column A: Down -> Up -->
+    <div class="column">
+      <div class="box">
+        <h4 class="title is-5 has-text-centered">Move Down → Move Up Transfer</h4>
+        <figure class="image" style="margin-bottom:0.75rem;">
+          <img src="./static/up_down/98681_7.gif" 
+              alt="Transfer example 1: down to up" 
+              loading="lazy" 
+              style="max-width:100%; height:auto; border-radius:6px;">
+        </figure>
+        <figure class="image">
+          <img src="./static/up_down/130207_4.gif" 
+              alt="Transfer example 2: down to up" 
+              loading="lazy" 
+              style="max-width:100%; height:auto; border-radius:6px;">
+        </figure>
+        <p class="help has-text-centered" style="margin-top:0.5rem;">
+          Upward-motion latents flips a downward-moving clip into upward motion.
+        </p>
+      </div>
+    </div>
+
+    <!-- Column B: Right -> Left -->
+    <div class="column">
+      <div class="box">
+        <h4 class="title is-5 has-text-centered">Move Right → Move Left Transfer</h4>
+        <figure class="image" style="margin-bottom:0.75rem;">
+          <img src="./static/left_right/203562_16.gif" 
+              alt="Transfer example 1: right to left" 
+              loading="lazy" 
+              style="max-width:100%; height:auto; border-radius:6px;">
+        </figure>
+        <figure class="image">
+          <img src="./static/left_right/150362_9.gif" 
+              alt="Transfer example 2: right to left" 
+              loading="lazy" 
+              style="max-width:100%; height:auto; border-radius:6px;">
+        </figure>
+        <p class="help has-text-centered" style="margin-top:0.5rem;">
+          Leftward-motion latents flips a rightward-moving clip into leftward motion.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
